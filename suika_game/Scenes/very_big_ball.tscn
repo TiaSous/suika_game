@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://rm7jhigqehnv"]
+
+[ext_resource type="Script" path="res://Scenes/very_big_ball.gd" id="1_phuuc"]
+[ext_resource type="Texture2D" uid="uid://dtcbx5bafa7lb" path="res://image/fraise.png" id="1_qy05f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88jyn"]
+radius = 27.074
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1218a"]
+radius = 28.0713
+
+[node name="very_big_ball" type="RigidBody2D"]
+script = ExtResource("1_phuuc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, -17)
+scale = Vector2(1.25753, 1.065)
+texture = ExtResource("1_qy05f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_88jyn")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+light_mask = 4
+visibility_layer = 4
+shape = SubResource("CircleShape2D_1218a")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg7qwns07t0qy"]
+
+[ext_resource type="Script" path="res://Scenes/big_ball.gd" id="1_7307y"]
+[ext_resource type="Texture2D" uid="uid://6qmdikm487bh" path="res://image/abricot.png" id="2_cwdtp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pap4q"]
+radius = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_egt5y"]
+radius = 19.0263
+
+[node name="big_ball" type="RigidBody2D"]
+script = ExtResource("1_7307y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_pap4q")
+
+[node name="touchArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="touchArea"]
+light_mask = 2
+visibility_layer = 2
+shape = SubResource("CircleShape2D_egt5y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 1)
+scale = Vector2(2.01098, 2.13799)
+texture = ExtResource("2_cwdtp")
+
+[connection signal="area_entered" from="touchArea" to="." method="_on_touch_area_area_entered"]

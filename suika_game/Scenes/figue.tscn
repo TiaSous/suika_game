@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbrmf6g0etro5"]
+
+[ext_resource type="Texture2D" uid="uid://dyg8dhc7wvvda" path="res://image/figue.png" id="1_wo4mf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oiqr7"]
+radius = 38.1182
+
+[node name="figue" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-14, 0.999996)
+scale = Vector2(1.73193, 1.8)
+texture = ExtResource("1_wo4mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_oiqr7")
